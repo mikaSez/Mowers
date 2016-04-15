@@ -80,10 +80,4 @@ public class AlignementTest {
         Assert.assertEquals(Directions.North, four);
     }
 
-    @Test
-    public void withBounds(){
-        alignement.withBounds(new Position(5,4));
-
-        Assert.assertTrue(alignement.hasBounds());
-    }
 }
