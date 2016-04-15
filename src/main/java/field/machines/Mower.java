@@ -1,11 +1,25 @@
 package field.machines;
 
+import field.Alignement;
 import field.Directions;
 
+
 /**
- * Created by MikaSez on 14/04/2016.
- */
+ * A simple mower it can turn, it can advance
+ * Actions : turn (L)eft - (R)ight - (A)dvance
+ * */
 public class Mower {
-    public Mower(int x, int y, Directions north) {
+    private Alignement alignement;
+
+    public Mower(int x, int y, Directions dir) {
+        this.alignement = new Alignement(x,y,dir);
+    }
+
+    public int getPositionX() {
+        return alignement.getX();
+    }
+
+    public int getPositionY() {
+        return alignement.getY();
     }
 }
