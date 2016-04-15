@@ -1,12 +1,11 @@
 package field.machines;
 
-public interface Machine
-{
+public interface Machine {
 
-   void advance();
+    void advance();
 
-   void right();
+    void right();
 
-   void left();
+    void left();
 
 }

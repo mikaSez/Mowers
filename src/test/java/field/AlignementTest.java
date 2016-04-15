@@ -10,74 +10,75 @@ import org.junit.Test;
 public class AlignementTest {
     private Alignement alignement;
 
-   @Before
-   public void setUp(){
-       alignement = new Alignement(2,4,Directions.North);
-   }
-
-
+    @Before
+    public void setUp() {
+	alignement = new Alignement(2, 4, Directions.North);
+    }
 
     @Test
-    public void advanceNorth(){
-        alignement.move();
+    public void advanceNorth() {
+	Alignement result = new Alignement(2, 5, Directions.North);
 
-        Assert.assertEquals(5, alignement.getY());
+	alignement.move();
+
+	Assert.assertEquals(result, alignement);
 
     }
 
     @Test
-    public void advanceEast(){
-
-        alignement.right();
-        alignement.move();
-        Assert.assertEquals(3, alignement.getX());
-
-    }
-
-    @Test
-    public void advanceWest(){
-
-        alignement.left();
-        alignement.move();
-        Assert.assertEquals(1, alignement.getX());
+    public void advanceEast() {
+	Alignement result = new Alignement(3, 4, Directions.Est);
+	alignement.right();
+	alignement.move();
+	Assert.assertEquals(result, alignement);
 
     }
 
     @Test
-    public void advanceSouth(){
+    public void advanceWest() {
 
-        alignement.left();
-        alignement.left();
-        alignement.move();
-        Assert.assertEquals(3, alignement.getY());
+	Alignement result = new Alignement(1, 4, Directions.West);
+	alignement.left();
+	alignement.move();
+	Assert.assertEquals(result, alignement);
 
     }
 
-
     @Test
-    public void turnLeft(){
-        Directions one = alignement.left();
-        Directions two = alignement.left();
-        Directions three = alignement.left();
-        Directions four = alignement.left();
+    public void advanceSouth() {
 
-        Assert.assertEquals(Directions.West, one);
-        Assert.assertEquals(Directions.South, two);
-        Assert.assertEquals(Directions.Est, three);
-        Assert.assertEquals(Directions.North, four);
+	Alignement result = new Alignement(2, 3, Directions.South);
+	alignement.left();
+	alignement.left();
+	alignement.move();
+	Assert.assertEquals(result, alignement);
+
     }
 
     @Test
-    public void turnRigth(){
-        Directions one = alignement.right();
-        Directions two = alignement.right();
-        Directions three = alignement.right();
-        Directions four = alignement.right();
+    public void turnLeft() {
+	Directions one = alignement.left();
+	Directions two = alignement.left();
+	Directions three = alignement.left();
+	Directions four = alignement.left();
 
-        Assert.assertEquals(Directions.Est, one);
-        Assert.assertEquals(Directions.South, two);
-        Assert.assertEquals(Directions.West, three);
-        Assert.assertEquals(Directions.North, four);
+	Assert.assertEquals(Directions.West, one);
+	Assert.assertEquals(Directions.South, two);
+	Assert.assertEquals(Directions.Est, three);
+	Assert.assertEquals(Directions.North, four);
+    }
+
+    @Test
+    public void turnRigth() {
+	Directions one = alignement.right();
+	Directions two = alignement.right();
+	Directions three = alignement.right();
+	Directions four = alignement.right();
+
+	Assert.assertEquals(Directions.Est, one);
+	Assert.assertEquals(Directions.South, two);
+	Assert.assertEquals(Directions.West, three);
+	Assert.assertEquals(Directions.North, four);
     }
 
 }

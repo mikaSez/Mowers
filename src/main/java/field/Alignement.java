@@ -1,67 +1,108 @@
 package field;
 
 /**
- * Created by MikaSez on 14/04/2016.
+ * Class handling current position and direction of a moving element
  */
 public class Alignement {
-   private int x;
-   private int y;
-   private Directions direction;
+    private Coordinates coordinates;
+    private Directions direction;
 
+    /**
+     * We begin counting from bottom left
+     * */
+    public Alignement(int x, int y, Directions dir) {
+	coordinates = new Coordinates(x, y);
+	this.direction = dir;
+    }
 
-   public Alignement(int x, int y, Directions dir) {
-      this.x = x;
-      this.y = y;
-      this.direction = dir;
-   }
+    /**
+     * This function merely turns the object to the left <br/>
+     * Object doesn't move
+     * 
+     * @return The current facing direction
+     * */
+    public Directions left() {
+	direction = direction.nextLeft();
+	return direction;
+    }
 
-   public Directions left() {
-      direction = direction.nextLeft();
-      return direction;
-   }
+    /**
+     * This function merely turns the object to the right <br/>
+     * Object doesn't move
+     * 
+     * @return The current facing direction
+     * */
+    public Directions right() {
+	direction = direction.nextRight();
+	return direction;
+    }
 
-   public Directions right() {
-      direction = direction.nextRight();
-      return direction;
-   }
+    /**
+     * Moves the object in the currently facing direction<br/>
+     * */
+    public void move() {
+	switch (direction) {
+	case North:
+	    coordinates.north();
+	    break;
+	case Est:
+	    coordinates.est();
+	    break;
+	case West:
+	    coordinates.west();
+	    break;
+	case South:
+	    coordinates.south();
+	    break;
+	}
+    }
 
-   public int getX() {
-      return x;
-   }
+    @Override
+    public String toString() {
+	StringBuilder sb = new StringBuilder();
+	sb.append(coordinates);
+	sb.append(' ');
+	sb.append(direction.getCommand());
+	return sb.toString();
+    }
 
-   public int getY() {
-      return y;
-   }
+    public void withBounds(Coordinates position) {
+    }
 
-   public void move() {
-      switch (direction){
-         case North:
-            y++;
-            break;
-         case Est:
-            x++;
-            break;
-         case West:
-            x--;
-            break;
-         case South:
-            y--;
-            break;
-      }
-   }
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result
+		+ ((coordinates == null) ? 0 : coordinates.hashCode());
+	result = prime * result
+		+ ((direction == null) ? 0 : direction.hashCode());
+	return result;
+    }
 
-   @Override
-   public String toString()
-   {
-      StringBuilder sb = new StringBuilder();
-      sb.append(x);
-      sb.append(' ');
-      sb.append(y);
-      sb.append(' ');
-      sb.append(direction.getCommand());
-      return sb.toString();
-   }
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	Alignement other = (Alignement) obj;
+	if (coordinates == null) {
+	    if (other.coordinates != null) {
+		return false;
+	    }
+	} else if (!coordinates.equals(other.coordinates)) {
+	    return false;
+	}
+	if (direction != other.direction) {
+	    return false;
+	}
+	return true;
+    }
 
-   public void withBounds(Position position) {
-   }
 }
