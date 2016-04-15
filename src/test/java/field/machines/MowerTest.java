@@ -25,5 +25,24 @@ public class MowerTest {
       Assert.assertEquals("2 4 N", mower.toString());
    }
 
+   @Test
+   public void advanceCommand()
+   {
+      mower.execute("A");
+      Assert.assertEquals("2 5 N", mower.toString());
+   }
 
+   @Test
+   public void leftCommand()
+   {
+      mower.execute("G");
+      Assert.assertEquals("2 4 W", mower.toString());
+   }
+
+   @Test
+   public void rightCommand()
+   {
+      mower.execute("D");
+      Assert.assertEquals("2 4 E", mower.toString());
+   }
 }
