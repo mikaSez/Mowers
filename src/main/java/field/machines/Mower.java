@@ -1,54 +1,64 @@
 package field.machines;
 
-import command.MachineCommandFactory;
-
-import field.Alignement;
-import field.Directions;
+import command.CommandFactory;
+import position.Alignment;
+import position.Coordinates;
+import position.Directions;
 
 /**
- * A simple mower it can turn, it can advance Actions : turn (G)Left - (D)Right
- * - (A)dvance
+ * A simple mower it can turn, it can advance Actions : turn Left - Right
+ * - Advance
  */
 public class Mower implements Machine {
-    private Alignement alignement;
-    private static final MachineCommandFactory factory = MachineCommandFactory
-	    .init();
+    private final Alignment alignment;
+
+
 
     public Mower(int x, int y, Directions dir) {
-	this.alignement = new Alignement(x, y, dir);
+
+        this.alignment = new Alignment(x, y, dir);
+
     }
 
     @Override
     public String toString() {
-	return alignement.toString();
+	return alignment.toString();
     }
+
 
     /**
-     * Execute given set of commands on this mower <br/>
-     * Available commands are : <br/>
-     * <dl>
-     * <dt>A</dt>
-     * <dd>Advance the mower one case at a time</dd>
-     * </dl>
-     */
-    public void execute(String command) {
-	command.chars().forEach(c -> factory.execute(c, this));
-
+     * Forcibly change current mower position without changing its coordinates
+     * */
+    public void forceCoordinates(Coordinates coordinates) {
+        alignment.setCoordinates(coordinates);
     }
 
-    @Override
+
     public void advance() {
-	alignement.move();
+	    alignment.move();
     }
 
-    @Override
+
     public void right() {
-	alignement.right();
+	alignment.right();
+    }
+
+
+    public void left() {
+	alignment.left();
     }
 
     @Override
-    public void left() {
-	alignement.left();
+    public Alignment getAlignment(){
+        return alignment;
     }
+
+
+    public Coordinates getCoordinates() {
+        return alignment.getCoordinates();
+    }
+
 
 }
+
+

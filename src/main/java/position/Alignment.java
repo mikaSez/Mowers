@@ -1,16 +1,16 @@
-package field;
+package position;
 
 /**
  * Class handling current position and direction of a moving element
  */
-public class Alignement {
+public class Alignment {
     private Coordinates coordinates;
     private Directions direction;
 
     /**
      * We begin counting from bottom left
      * */
-    public Alignement(int x, int y, Directions dir) {
+    public Alignment(int x, int y, Directions dir) {
 	coordinates = new Coordinates(x, y);
 	this.direction = dir;
     }
@@ -66,8 +66,6 @@ public class Alignement {
 	return sb.toString();
     }
 
-    public void withBounds(Coordinates position) {
-    }
 
     @Override
     public int hashCode() {
@@ -91,7 +89,7 @@ public class Alignement {
 	if (getClass() != obj.getClass()) {
 	    return false;
 	}
-	Alignement other = (Alignement) obj;
+	Alignment other = (Alignment) obj;
 	if (coordinates == null) {
 	    if (other.coordinates != null) {
 		return false;
@@ -105,4 +103,11 @@ public class Alignement {
 	return true;
     }
 
+	public Coordinates getCoordinates() {
+		return coordinates;
+	}
+
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
+	}
 }

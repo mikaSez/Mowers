@@ -3,6 +3,7 @@ package field;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import position.Directions;
 
 public class FieldTest {
 
@@ -13,11 +14,6 @@ public class FieldTest {
 	field = new Field(5, 3);
     }
 
-    @Test
-    public void fieldInit() {
-	Assert.assertEquals(5, field.getWidth());
-	Assert.assertEquals(3, field.getHeight());
-    }
 
     @Test
     public void addMower() {

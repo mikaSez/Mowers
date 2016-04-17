@@ -1,8 +1,9 @@
-package field;
+package field.position;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import position.Coordinates;
 
 public class CoordinatesTest {
     private Coordinates coordinates;

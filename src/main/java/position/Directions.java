@@ -1,4 +1,4 @@
-package field;
+package position;
 
 /**
  * Cardinal directions available in the application <br/>

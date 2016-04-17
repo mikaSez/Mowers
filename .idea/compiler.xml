@@ -25,8 +25,8 @@
         <module name="Mowers" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Mowers" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="Mowers" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

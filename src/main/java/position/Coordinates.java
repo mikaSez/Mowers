@@ -1,4 +1,4 @@
-package field;
+package position;
 
 /**
  * Class handling the coordinates of any given objects <br/>
@@ -12,6 +12,11 @@ public class Coordinates {
 	this.x = x;
 	this.y = y;
     }
+
+	public Coordinates(Coordinates c){
+		this.x = c.x;
+		this.y = c.y;
+	}
 
     /**
      * Increments the Y component of the coordinates.
@@ -79,5 +84,13 @@ public class Coordinates {
 	sb.append(y);
 	return sb.toString();
     }
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
 
 }
