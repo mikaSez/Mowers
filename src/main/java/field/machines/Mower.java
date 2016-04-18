@@ -29,7 +29,7 @@ public class Mower implements Machine {
     /**
      * Forcibly change current mower position without changing its coordinates
      * */
-    public void forceCoordinates(Coordinates coordinates) {
+     void forceCoordinates(Coordinates coordinates) {
         alignment.setCoordinates(coordinates);
     }
 

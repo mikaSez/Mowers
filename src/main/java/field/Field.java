@@ -34,7 +34,7 @@ public class Field {
      * @throws IllegalArgumentException x is not in field bounds (from 0 to width)
      * @throws IllegalArgumentException y is not in field bounds (from 0 to height)
      */
-    public void addMower(int x, int y, Directions dir) {
+    public Machine addMower(int x, int y, Directions dir) {
         if (x > coordinates.getX() || x < 0) {
             throw new IllegalArgumentException(
                     "X should be in field bounds : 0 - " + coordinates.getX());
@@ -45,6 +45,7 @@ public class Field {
         }
         Mower m = new Mower(x, y, dir);
         machines.add(new FieldMower(m, this));
+        return m;
     }
 
     public boolean InBounds(Coordinates c) {

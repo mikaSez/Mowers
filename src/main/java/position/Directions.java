@@ -1,5 +1,8 @@
 package position;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 /**
  * Cardinal directions available in the application <br/>
  * It tracks the direction on the right and on the left <br/>
@@ -34,7 +37,14 @@ public enum Directions {
     /**
      * Returns the first letter of the current direction
      * */
-    public Object getCommand() {
+    public Character getCommand() {
 	return this.name().charAt(0);
+    }
+
+    /**
+     * Search for the one cardinal direction starting with the given character
+     * */
+    public static Optional<Directions> valueOf(Character character){
+        return Arrays.stream(values()).filter(c-> c.name().startsWith(character.toString())).findFirst();
     }
 }
