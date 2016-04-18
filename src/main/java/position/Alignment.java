@@ -59,11 +59,11 @@ public class Alignment {
 
     @Override
     public String toString() {
-	StringBuilder sb = new StringBuilder();
-	sb.append(coordinates);
-	sb.append(' ');
-	sb.append(direction.getCommand());
-	return sb.toString();
+		StringBuilder sb = new StringBuilder();
+		sb.append(coordinates);
+		sb.append(' ');
+		sb.append(direction.getCommand());
+		return sb.toString();
     }
 
 
@@ -97,11 +97,8 @@ public class Alignment {
 	} else if (!coordinates.equals(other.coordinates)) {
 	    return false;
 	}
-	if (direction != other.direction) {
-	    return false;
+		return direction == other.direction;
 	}
-	return true;
-    }
 
 	public Coordinates getCoordinates() {
 		return coordinates;

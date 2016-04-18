@@ -14,7 +14,7 @@ import org.junit.Test;
 public class FieldMowerTest {
 
     private Machine machine;
-    private Field field = new Field(2, 3);
+    private final Field field = new Field(2, 3);
 
     @Before
     public void setUp() throws Exception {

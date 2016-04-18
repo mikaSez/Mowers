@@ -46,7 +46,7 @@ public class MachineCommandFactory implements CommandFactory {
      * <dd>Call the machine's left mechanism</dd>
      * </dl>
      */
-
+    @Override
     public void runCommands(String commands){
          commands.chars().forEach(this::execute);
     }

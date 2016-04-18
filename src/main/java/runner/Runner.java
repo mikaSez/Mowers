@@ -17,7 +17,7 @@ public class Runner {
 
     private Field field;
     private Machine machine;
-    public static final Logger log = Logger.getLogger(Runner.class.getName());
+    private static final Logger log = Logger.getLogger(Runner.class.getName());
 
 
     public Runner(){
@@ -104,6 +104,7 @@ public class Runner {
             addMachine(it.next());
             if(it.hasNext()){
                 Alignment al = executeCommand(it.next());
+                //to print even without logger
                 System.out.println(al);
                 results.add(al);
             }

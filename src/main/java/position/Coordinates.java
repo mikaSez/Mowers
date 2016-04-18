@@ -57,23 +57,17 @@ public class Coordinates {
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
-	}
-	if (obj == null) {
-	    return false;
-	}
-	if (getClass() != obj.getClass()) {
-	    return false;
-	}
-	Coordinates other = (Coordinates) obj;
-	if (x != other.x) {
-	    return false;
-	}
-	if (y != other.y) {
-	    return false;
-	}
-	return true;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Coordinates other = (Coordinates) obj;
+        return x == other.x && y == other.y;
     }
 
     @Override

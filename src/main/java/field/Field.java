@@ -13,8 +13,8 @@ import position.Directions;
  * The field limiting mowers movements
  */
 public class Field {
-    private Coordinates coordinates;
-    private List<Machine> machines;
+    private final Coordinates coordinates;
+    private final List<Machine> machines;
 
     public Field(int x, int y) {
         coordinates = new Coordinates(x, y);

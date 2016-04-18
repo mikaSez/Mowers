@@ -12,9 +12,8 @@ import field.Field;
  */
 public class FieldMower implements Machine{
 
-    private Coordinates lastPosition;
-    private Mower mower;
-    private Field field;
+    private final Mower mower;
+    private final Field field;
 
     public FieldMower(Mower mower, Field field){
         this.mower = mower;
@@ -22,10 +21,10 @@ public class FieldMower implements Machine{
     }
 
     /**
-     * Advance the mower only if the next position is inside boundaries defined by the {@Field}
+     * Advance the mower only if the next position is inside boundaries defined by the {@link Field}
      * */
     public void advance() {
-        lastPosition = new Coordinates(mower.getCoordinates());
+        Coordinates lastPosition = new Coordinates(mower.getCoordinates());
         mower.advance();
         if(!field.InBounds(mower.getCoordinates())){
             mower.forceCoordinates(lastPosition);

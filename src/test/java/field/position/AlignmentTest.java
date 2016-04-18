@@ -68,7 +68,7 @@ public class AlignmentTest {
     }
 
     @Test
-    public void turnRigth() {
+    public void turnRight() {
 	Directions one = alignment.right();
 	Directions two = alignment.right();
 	Directions three = alignment.right();
