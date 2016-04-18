@@ -11,11 +11,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 public class Runner {
 
     private Field field;
     private Machine machine;
+    public static final Logger log = Logger.getLogger(Runner.class.getName());
+
 
     public Runner(){
 
@@ -27,11 +30,12 @@ public class Runner {
             throw new IllegalArgumentException("Field should have exactly 2 parameters");
         }
          
-        int height = Integer.parseInt(str[0]);
-        int width = Integer.parseInt(str[1]);
+        int width = Integer.parseInt(str[0]);
+        int height = Integer.parseInt(str[1]);
 
-        
-        this.field = new Field(height, width);
+        this.field = new Field(width, height);
+
+         log.info("Created field sized: " + field);
     }
 
 
@@ -49,14 +53,17 @@ public class Runner {
          }
 
          machine = field.addMower(x,y, dir.get());
+
+         log.info("Created a new machine at : " + machine);
     }
 
     /**
-     * Commands to be run on the last added machine
-     *
+     * @param commands to be run on the last added machine
+     * @return Alignment after command execution
      * */
     Alignment executeCommand(String commands){
         assert(machine != null) : "We can execute commands only on an already existing machine";
+        log.info("executing a new command set : " + commands);
         MachineCommandFactory.init(machine).runCommands(commands);
         return  machine.getAlignment();
     }
@@ -83,8 +90,13 @@ public class Runner {
      * </pre>
      * */
     public List<Alignment> runScenario(List<String> scenario){
+        assert scenario != null : "We cannot run a null scenario";
+        log.info("Got a new scenario");
+        scenario.forEach(log::info);
+
         List<Alignment> results = new ArrayList<>();
         Iterator<String> it = scenario.iterator();
+
         if(it.hasNext()){
             setField(it.next());
         }

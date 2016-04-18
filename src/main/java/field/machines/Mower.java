@@ -1,6 +1,5 @@
 package field.machines;
 
-import command.CommandFactory;
 import position.Alignment;
 import position.Coordinates;
 import position.Directions;

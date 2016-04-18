@@ -13,11 +13,11 @@ import field.Field;
 public class FieldMower implements Machine{
 
     private Coordinates lastPosition;
-    private Mower machine;
+    private Mower mower;
     private Field field;
 
-    public FieldMower(Mower machine, Field field){
-        this.machine = machine;
+    public FieldMower(Mower mower, Field field){
+        this.mower = mower;
         this.field = field;
     }
 
@@ -25,31 +25,31 @@ public class FieldMower implements Machine{
      * Advance the mower only if the next position is inside boundaries defined by the {@Field}
      * */
     public void advance() {
-        lastPosition = new Coordinates(machine.getCoordinates());
-        machine.advance();
-        if(!field.InBounds(machine.getCoordinates())){
-            machine.forceCoordinates(lastPosition);
+        lastPosition = new Coordinates(mower.getCoordinates());
+        mower.advance();
+        if(!field.InBounds(mower.getCoordinates())){
+            mower.forceCoordinates(lastPosition);
         }
     }
 
     @Override
     public void right() {
-        machine.right();
+        mower.right();
     }
 
     @Override
     public void left() {
-        machine.left();
+        mower.left();
     }
 
     @Override
     public Alignment getAlignment() {
-        return machine.getAlignment();
+        return mower.getAlignment();
     }
 
 
     @Override
     public String toString(){
-        return machine.toString();
+        return mower.toString();
     }
 }

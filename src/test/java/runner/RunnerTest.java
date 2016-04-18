@@ -98,6 +98,10 @@ public class RunnerTest {
         runner.runScenario(Arrays.asList(scenario));
     }
 
+    @Test(expected = AssertionError.class)
+    public void nullScenario(){
+        runner.runScenario(null);
+    }
     @Test
     public void givenScenario(){
         String[] scenario = {"5 5", "1 2 N", "GAGAGAGAA", "3 3 E", "AADAADADDA"};
